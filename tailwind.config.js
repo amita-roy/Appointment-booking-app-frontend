@@ -15,7 +15,7 @@ module.exports = {
     height: {
       jumbotron: '700px',
       sm: '8px',
-      md: '16px',
+      full: '100%',
       header: '80px',
       subHeader: '50px',
     },
