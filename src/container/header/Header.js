@@ -1,42 +1,38 @@
 import React, { PureComponent } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './header.module.css';
 
 class Header extends PureComponent {
   render() {
-    const activeStyle = {
-      color: '#d3ae6b',
-    };
     return (
       <div className="header">
-        <div className={styles.headerTop}>
+        <div className="flex justify-between h-20 items-center px-16 bg-primary">
           <div className="brand-name">Encapture</div>
           <div className="brand-name">Right Items</div>
         </div>
-        <div className={styles.headerBottom}>
+        <div className="h-12 bg-black text-white flex justify-end items-center px-16 text-sm font-light">
           <NavLink
             to="/"
             exact
-            className={styles.bottomNavFont}
-            activeStyle={activeStyle}
+            activeClassName="text-primary"
+            className=" uppercase"
           >
-            HOME
+            home
           </NavLink>
           <NavLink
             to="/services"
             exact
-            className={`${styles.bottomNavFont} ml-8`}
-            activeStyle={activeStyle}
+            className="ml-8 uppercase"
+            activeClassName="text-primary"
           >
-            SERVICES
+            services
           </NavLink>
           <NavLink
             to="/appointments"
             exact
-            className={`${styles.bottomNavFont} ml-8`}
-            activeStyle={activeStyle}
+            className="ml-8 uppercase"
+            activeClassName="text-primary"
           >
-            MY APPOINTMENTS
+            my appointments
           </NavLink>
         </div>
       </div>
