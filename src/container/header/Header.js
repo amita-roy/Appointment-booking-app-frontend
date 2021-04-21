@@ -9,7 +9,10 @@ class Header extends PureComponent {
     };
     return (
       <div className="header">
-        <div className={styles.headerTop}>Top</div>
+        <div className={styles.headerTop}>
+          <div className="brand-name">Encapture</div>
+          <div className="brand-name">Right Items</div>
+        </div>
         <div className={styles.headerBottom}>
           <NavLink
             to="/"
