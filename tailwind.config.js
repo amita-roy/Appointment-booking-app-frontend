@@ -12,7 +12,18 @@ module.exports = {
       black: colors.black,
       white: colors.white,
     },
-    extend: {},
+    height: {
+      jumbotron: '700px',
+      sm: '8px',
+      md: '16px',
+      header: '80px',
+      subHeader: '50px',
+    },
+    extend: {
+      backgroundImage: () => ({
+        jumbotron: "url('assets/images/jumbotron-bg.jpeg')",
+      }),
+    },
   },
   variants: {
     extend: {},
