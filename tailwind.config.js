@@ -11,13 +11,7 @@ module.exports = {
       },
       black: colors.black,
       white: colors.white,
-    },
-    height: {
-      jumbotron: '700px',
-      sm: '8px',
-      full: '100%',
-      header: '80px',
-      subHeader: '50px',
+      decoration: '#300C4B',
     },
     extend: {
       backgroundImage: () => ({

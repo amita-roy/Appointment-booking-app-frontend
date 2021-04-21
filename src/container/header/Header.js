@@ -7,7 +7,7 @@ class Header extends PureComponent {
   render() {
     return (
       <div className="header">
-        <div className="flex justify-between items-center px-16 bg-primary h-header">
+        <div className="flex justify-between items-center px-16 bg-primary h-20">
           <div className="flex items-center">
             <img src={logoSrc} alt="logo" className="w-9 mr-1" />
             <p className="text-2xl font-400">Encapture</p>
@@ -45,7 +45,7 @@ class Header extends PureComponent {
             </div>
           </div>
         </div>
-        <div className="bg-black text-white flex justify-end items-center px-16 text-sm font-light h-subHeader">
+        <div className="bg-black text-white flex justify-end items-center px-16 text-sm font-light h-12">
           <NavLink
             to="/"
             exact

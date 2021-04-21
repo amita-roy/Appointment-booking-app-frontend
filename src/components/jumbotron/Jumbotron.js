@@ -2,7 +2,7 @@ import React from 'react';
 // import jumbotronBg from 'assets/images/jumbotron-bg.jpeg';
 
 const Jumbotron = () => (
-  <div className="h-jumbotron bg-jumbotron bg-cover bg-center relative">
+  <div className="bg-jumbotron bg-cover bg-center relative" style={{ height: '700px' }}>
     <div className="content absolute w-full flex items-center justify-center h-full bg-black bg-opacity-50">
       <div>
         <h1 className="text-white text-6xl leading-relaxed">
