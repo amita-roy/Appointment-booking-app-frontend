@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #d3ae6b;
+  --primary-dark: #6e5e3d;
+}
+
+.headerTop {
+  background-color: var(--primary-color);
+  height: 80px;
+}
+
+.headerBottom {
+  height: 50px;
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.bottomNavFont {
+  font-weight: 300;
+  font-size: 14px;
+  color: white;
+}
+
+.activeStyle {
+  color: var(--primary-color);
+}
