@@ -1,7 +1,6 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false,
   theme: {
@@ -14,6 +13,7 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       decoration: '#300C4B',
+      homepageDeco: '#FFA400',
     },
     extend: {
       backgroundImage: () => ({
