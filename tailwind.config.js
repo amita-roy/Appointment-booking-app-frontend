@@ -1,13 +1,15 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     colors: {
       primary: {
         DEFAULT: '#d3ae6b',
         dark: '#6e5e3d',
+        light: '#FFE2AD',
       },
       black: colors.black,
       white: colors.white,
