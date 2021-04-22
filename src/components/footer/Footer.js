@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Footer = () => {
-  const columnClasses = 'column w-1/4 px-10';
+  const columnClasses = 'column w-1/2 xl:w-1/4 px-10';
   const spanCardClasses = 'w-14 flex justify-center items-center bg-primary text-black mr-4 text-sm py-1 px-2';
   return (
-    <div className="footer h-[400px]">
-      <div className="footer-top bg-black text-primary flex px-40 py-28">
+    <div className="footer">
+      <div className="footer-top bg-black text-primary flex flex-wrap p-10 lg:px-40 lg:py-28">
         <div className={columnClasses}>
           <p className="text-4xl font-light text-left">Encapture</p>
           <p className="mt-3 font-thin pr-10">
@@ -26,14 +26,14 @@ const Footer = () => {
           <p className="font-light mt-2">About Us</p>
           <p className="font-light mt-2">Contact Us</p>
         </div>
-        <div className={columnClasses}>
+        <div className={`${columnClasses} mt-10 xl:mt-0`}>
           <p className="text-xl font-normal">Products</p>
           <p className="font-light mt-2">Price Drop</p>
           <p className="font-light mt-2">New Products</p>
           <p className="font-light mt-2">Best Sales</p>
           <p className="font-light mt-2">Store</p>
         </div>
-        <div className={columnClasses}>
+        <div className={`${columnClasses} mt-10 xl:mt-0`}>
           <p className="text-xl font-normal">Contact Us</p>
           <p className="font-light mt-2 flex items-center">
             <span className="mr-3">
