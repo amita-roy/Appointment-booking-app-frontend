@@ -20,7 +20,7 @@ const HomePage = () => (
           </p>
           <button
             type="button"
-            className="uppercase text-xs px-4 pt-3 pb-2 bg-primary mt-6 outline-none shadow-lg focus:outline-none"
+            className="uppercase text-xs px-4 pt-4 pb-3 bg-primary mt-8 outline-none shadow-lg focus:outline-none"
           >
             view services
           </button>
