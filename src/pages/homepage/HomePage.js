@@ -5,9 +5,9 @@ import homepageImage from 'assets/images/homepage-pic.png';
 const HomePage = () => (
   <div>
     <Jumbotron />
-    <div className="border-primary border-2 flex items-center justify-center p-14 xl:px-48 xl:py-20">
-      <div className="lg:flex lg:justify-between lg:items-center">
-        <div className="content px-10 lg:w-1/2 text-center lg:text-left">
+    <div className="flex items-center justify-center p-14 xl:px-56 xl:py-20">
+      <div className="flex justify-between items-center">
+        <div className="content w-1/2 lg:pr-20 text-left">
           <p className="uppercase text-black text-opacity-50">what we offer</p>
           <p className="text-black capitalize font-medium text-2xl mt-2">
             skin health and beauty
@@ -25,8 +25,13 @@ const HomePage = () => (
             view services
           </button>
         </div>
-        <div className="image-section border-2 lg:w-1/2 px-10 object-contain object-center mt-20 lg:mt-0" style={{ height: '450px' }}>
-          <img src={homepageImage} alt="girlImg" className="h-full m-auto" />
+        <div className="image-section h-96 w-96 px-10 relative ml-10">
+          <div className="rounded-full bg-primary bg-opacity-40 h-64 w-64 absolute top-0 left-0" />
+          <div className="rounded-full bg-decoration bg-opacity-40 h-28 w-28 absolute -bottom-2 right-0" />
+
+          <div className="absolute h-full object-contain object-center top-0">
+            <img src={homepageImage} alt="girlImg" className="h-full m-auto" />
+          </div>
         </div>
       </div>
     </div>
