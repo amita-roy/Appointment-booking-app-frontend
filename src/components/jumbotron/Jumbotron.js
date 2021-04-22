@@ -12,7 +12,7 @@ const Jumbotron = () => (
           {' '}
           in Stockholm
         </h1>
-        <button type="button" className="uppercase bg-white px-6 pt-3 pb-2 text-sm">book now</button>
+        <button type="button" className="uppercase bg-white px-6 pt-3 pb-2 text-sm mt-6">book now</button>
       </div>
     </div>
   </div>
