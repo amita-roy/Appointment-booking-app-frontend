@@ -1,12 +1,13 @@
 import Routes from 'Routes';
 import Header from 'container/header/Header';
-import './App.css';
+import Footer from 'components/footer/Footer';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Routes />
+      <Footer />
     </div>
   );
 }
