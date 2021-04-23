@@ -1,5 +1,5 @@
 import Routes from 'Routes';
-import Header from 'container/header/Header';
+import Header from 'container/Header';
 import Footer from 'components/footer/Footer';
 
 function App() {
