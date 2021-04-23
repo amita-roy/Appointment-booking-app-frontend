@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Service = () => (
-  <div className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl">
+  <div className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl bg-white cursor-pointer transition duration-700 hover:transform hover:scale-105">
     <div className="flex justify-center image-wrapper">
       <div className="h-36 w-36 object-cover object-center rounded-full overflow-hidden">
         <img
@@ -31,7 +31,7 @@ const Service = () => (
             40 mins
           </p>
         </div>
-        <button type="button" className="bg-black text-white px-4 py-2">
+        <button type="button" className="bg-black text-white px-4 py-2 shadow-md focus:outline-none active:bg-opacity-80">
           Reserve
         </button>
       </div>

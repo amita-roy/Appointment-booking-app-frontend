@@ -22,7 +22,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      transform: ['hover', 'focus', 'active'],
+      backgroundOpacity: ['hover', 'focus', 'active'],
+    },
   },
   plugins: [],
 };
