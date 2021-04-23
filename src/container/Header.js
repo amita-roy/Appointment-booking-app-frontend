@@ -40,8 +40,8 @@ class Header extends PureComponent {
               <p className="uppercase pl-3">logout</p>
             </div>
             <div className="logged-out ml-10 hidden">
-              <p className="uppercase pr-3 border-r border-black">sign up</p>
-              <p className="uppercase pl-3">sign in</p>
+              <NavLink to="/signup" exact className="uppercase pr-3 border-r border-black">sign up</NavLink>
+              <NavLink to="/signin" exact className="uppercase pl-3">sign in</NavLink>
             </div>
           </div>
         </div>
