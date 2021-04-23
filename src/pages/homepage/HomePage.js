@@ -27,10 +27,11 @@ const HomePage = () => (
         </div>
         <div className="image-section h-96 w-96 px-10 relative ml-10">
           <div className="rounded-full bg-primary bg-opacity-40 h-64 w-64 absolute top-0 left-0" />
-          <div className="rounded-full bg-decoration bg-opacity-40 h-28 w-28 absolute -bottom-2 right-0" />
+          <div className="rounded-full bg-decoration bg-opacity-40 h-28 w-28 absolute -bottom-4 right-0" />
 
           <div className="absolute h-full object-contain object-center top-0">
             <img src={homepageImage} alt="girlImg" className="h-full m-auto" />
+            <div className="border-homepageDeco border-4 rounded-full" />
           </div>
         </div>
       </div>
