@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Service = () => (
-  <div className="w-80 border-2 p-5 lg:w-96 border-opacity-20 border-primary-dark shadow-xl">
+  <div className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl">
     <div className="flex justify-center image-wrapper">
       <div className="h-36 w-36 object-cover object-center rounded-full overflow-hidden">
         <img
@@ -11,26 +11,29 @@ const Service = () => (
         />
       </div>
     </div>
-    <div className="card-content flex justify-between mt-4 items-start">
-      <div className="left-content">
-        <p className="title text-2xl">Legs Waxing</p>
-        <p className="description text-sm text-opacity-40 text-black">
-          Sugar wax
-        </p>
-        <div className="tags mt-4">
-          <span className="p-2 bg-primary offer border mr-3 text-sm border-opacity-30 border-black">
-            50% Off
-          </span>
-          <span className="p-2 duration border border-opacity-30 border-black text-sm">
-            40 mins
-          </span>
+    <div className="card-content mt-3 ">
+      <div className="top-content flex justify-between items-start">
+        <div className="top-left-content">
+          <p className="title text-xl">Legs Waxing</p>
+          <p className="description text-sm text-opacity-40 text-black">
+            Sugar wax
+          </p>
         </div>
-      </div>
-      <div className="right-content flex flex-col justify-between h-24">
         <p className="price text-xl">400 SEK</p>
-        <p type="button" className="bg-black text-white px-4 py-2">
+      </div>
+
+      <div className="bottom-content flex justify-between items-end mt-2">
+        <div className="tags flex">
+          <p className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
+            50% Off
+          </p>
+          <p className="px-2 pt-2 pb-1 duration border border-opacity-30 border-black text-sm">
+            40 mins
+          </p>
+        </div>
+        <button type="button" className="bg-black text-white px-4 py-2">
           Reserve
-        </p>
+        </button>
       </div>
     </div>
   </div>
