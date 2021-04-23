@@ -18,13 +18,19 @@ const Service = () => (
           Sugar wax
         </p>
         <div className="tags mt-4">
-          <span className="p-2 bg-primary offer border mr-3 text-sm">50% Off</span>
-          <span className="p-2 duration border text-sm">40 mins</span>
+          <span className="p-2 bg-primary offer border mr-3 text-sm border-opacity-30 border-black">
+            50% Off
+          </span>
+          <span className="p-2 duration border border-opacity-30 border-black text-sm">
+            40 mins
+          </span>
         </div>
       </div>
       <div className="right-content flex flex-col justify-between h-24">
         <p className="price text-xl">400 SEK</p>
-        <p type="button" className="bg-black text-white px-4 py-2">Reserve</p>
+        <p type="button" className="bg-black text-white px-4 py-2">
+          Reserve
+        </p>
       </div>
     </div>
   </div>
