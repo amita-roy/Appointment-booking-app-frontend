@@ -1,10 +1,20 @@
 import React, { PureComponent } from 'react';
 import { NavLink } from 'react-router-dom';
+import Pluralize from 'pluralize';
 
 import logoSrc from 'assets/images/logo.png';
 
 class Header extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      itemCount: 0,
+    };
+  }
+
   render() {
+    const { itemCount } = this.state;
     return (
       <div className="header">
         <div className="flex justify-between items-center px-16 bg-primary h-20">
@@ -27,8 +37,8 @@ class Header extends PureComponent {
                 />
               </svg>
               <p className="pr-3 border-black border-r">
-                <span>0</span>
-                <span className="ml-1">Item</span>
+                <span>{itemCount}</span>
+                <span className="ml-1">{Pluralize('Item', itemCount)}</span>
               </p>
               <p className="pl-3">
                 <span>$</span>
@@ -40,8 +50,16 @@ class Header extends PureComponent {
               <p className="uppercase pl-3">logout</p>
             </div>
             <div className="logged-out ml-10 hidden">
-              <NavLink to="/signup" exact className="uppercase pr-3 border-r border-black">sign up</NavLink>
-              <NavLink to="/signin" exact className="uppercase pl-3">sign in</NavLink>
+              <NavLink
+                to="/signup"
+                exact
+                className="uppercase pr-3 border-r border-black"
+              >
+                sign up
+              </NavLink>
+              <NavLink to="/signin" exact className="uppercase pl-3">
+                sign in
+              </NavLink>
             </div>
           </div>
         </div>
