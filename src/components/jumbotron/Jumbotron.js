@@ -13,7 +13,7 @@ const Jumbotron = () => (
         </h1>
         <button
           type="button"
-          className="uppercase bg-white px-6 pt-3 pb-2 text-sm mt-20"
+          className="uppercase bg-white px-6 pt-3 pb-2 text-sm mt-20 focus:outline-none shadow-xl active:bg-opacity-80"
         >
           book now
         </button>
