@@ -18,10 +18,10 @@ class Header extends PureComponent {
     return (
       <div className="header">
         <div className="flex justify-between items-center px-16 bg-primary h-20">
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logoSrc} alt="logo" className="w-9 mr-1" />
             <p className="text-2xl font-400">Encapture</p>
-          </div>
+          </Link>
           <div className="flex">
             <div className="cart-price flex items-center">
               <Link to="/cart">
