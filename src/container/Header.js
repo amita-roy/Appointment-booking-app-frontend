@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Pluralize from 'pluralize';
 
 import logoSrc from 'assets/images/logo.png';
@@ -24,18 +24,20 @@ class Header extends PureComponent {
           </div>
           <div className="flex">
             <div className="cart-price flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 mr-3"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <Link to="/cart">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7 mr-3"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </Link>
               <p className="pr-3 border-black border-r">
                 <span>{itemCount}</span>
                 <span className="ml-1">{Pluralize('Item', itemCount)}</span>
@@ -47,7 +49,12 @@ class Header extends PureComponent {
             </div>
             <div className="logged-in flex items-center ml-10">
               <p className="uppercase pr-3 border-r border-black">john doe</p>
-              <p className="uppercase pl-3">logout</p>
+              <button
+                type="button"
+                className="uppercase pl-3  focus:outline-none"
+              >
+                logout
+              </button>
             </div>
             <div className="logged-out ml-10 hidden">
               <NavLink
