@@ -21,7 +21,6 @@ class SignInForm extends Component {
   render() {
     const { email, password } = this.state;
     const inputClasses = 'block bg-transparent border-b w-full px-5 py-2 focus:outline-none';
-    console.log(email, password);
     return (
       <form className="w-full flex flex-col">
         <div>
