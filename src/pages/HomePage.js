@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Jumbotron from 'components/jumbotron/Jumbotron';
 import homepageImage from 'assets/images/homepage-pic.png';
 
@@ -18,12 +19,13 @@ const HomePage = () => (
             positive image. We aim for perfection in the products we make and
             the service we provide.
           </p>
-          <button
+          <Link
+            to="/services"
             type="button"
-            className="uppercase text-xs px-4 pt-4 pb-3 bg-primary mt-8 outline-none shadow-lg focus:outline-none"
+            className="uppercase text-xs px-4 pt-4 pb-3 bg-primary mt-8 outline-none shadow-lg focus:outline-none active:bg-opacity-80"
           >
             view services
-          </button>
+          </Link>
         </div>
         <div className="image-section h-96 w-96 px-10 relative ml-10">
           <div className="rounded-full bg-primary bg-opacity-40 h-64 w-64 absolute top-0 left-0" />

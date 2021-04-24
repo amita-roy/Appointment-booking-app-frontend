@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Jumbotron = () => (
   <div
@@ -11,12 +12,13 @@ const Jumbotron = () => (
           Award-Winning beauty salon
           <span className="block mt-8">in Stockholm</span>
         </h1>
-        <button
+        <Link
+          to="/services"
           type="button"
           className="uppercase bg-white px-6 pt-3 pb-2 text-sm mt-20 focus:outline-none shadow-xl active:bg-opacity-80"
         >
           book now
-        </button>
+        </Link>
       </div>
     </div>
   </div>
