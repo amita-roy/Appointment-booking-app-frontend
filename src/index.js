@@ -10,7 +10,10 @@ import App from 'components/app/App';
 import './index.css';
 
 const initialState = {
-  auth: { authenticated: localStorage.getItem('token') },
+  auth: {
+    authenticated: localStorage.getItem('token'),
+    user: localStorage.getItem('user'),
+  },
 };
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -28,5 +31,5 @@ ReactDOM.render(
       </React.StrictMode>
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
