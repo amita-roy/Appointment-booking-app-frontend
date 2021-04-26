@@ -9,7 +9,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
   } else {
     dispatch({ type: ACTIONS.AUTH_USER, payload: success, user });
     localStorage.setItem('token', success);
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
     callback();
   }
 };
@@ -22,13 +22,14 @@ export const signin = (formProps, callback) => async (dispatch) => {
   } else {
     dispatch({ type: ACTIONS.AUTH_USER, payload: success, user });
     localStorage.setItem('token', success);
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
     callback();
   }
 };
 
 export const signout = () => {
   localStorage.removeItem('token');
+  localStorage.removeItem('user');
   return {
     type: ACTIONS.AUTH_USER,
     payload: '',
