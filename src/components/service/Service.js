@@ -7,11 +7,7 @@ const Service = (props) => {
     <div className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl bg-white cursor-pointer transition duration-300 hover:transform hover:scale-105">
       <div className="flex justify-center image-wrapper">
         <div className="h-36 w-36 object-cover object-center rounded-full overflow-hidden">
-          <img
-            src={service.image}
-            alt="skin care"
-            className="h-full w-auto"
-          />
+          <img src={service.image} alt="skin care" className="h-full w-auto" />
         </div>
       </div>
       <div className="card-content mt-3 ">
@@ -27,9 +23,12 @@ const Service = (props) => {
 
         <div className="bottom-content flex justify-between items-end mt-2">
           <div className="tags flex">
-            <p className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
-              {`${service.offer}% Off`}
-            </p>
+            {service.offer > 0 && (
+              <p className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
+                {`${service.offer}% Off`}
+              </p>
+            )}
+
             <p className="px-2 pt-2 pb-1 duration border border-opacity-30 border-black text-sm">
               {`${service.duration} mins`}
             </p>
