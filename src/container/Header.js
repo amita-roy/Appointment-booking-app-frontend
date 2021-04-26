@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import Pluralize from 'pluralize';
 import PropTypes from 'prop-types';
 
+import * as Actions from 'actions';
 import logoSrc from 'assets/images/logo.png';
 
 class Header extends PureComponent {
@@ -15,10 +16,15 @@ class Header extends PureComponent {
     };
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { signout } = this.props;
+    signout();
+  }
+
   render() {
     const { itemCount } = this.state;
     const { user } = this.props;
-    console.log(user);
     return (
       <div className="header">
         <div className="flex justify-between items-center px-16 bg-primary h-20">
@@ -54,10 +60,13 @@ class Header extends PureComponent {
 
             {user ? (
               <div className="logged-in flex items-center ml-10">
-                <p className="uppercase pr-3 border-r border-black">{user.name}</p>
+                <p className="uppercase pr-3 border-r border-black">
+                  {user.name}
+                </p>
                 <button
-                  type="button"
+                  type="submit"
                   className="uppercase pl-3  focus:outline-none"
+                  onClick={this.handleSubmit}
                 >
                   logout
                 </button>
@@ -109,10 +118,15 @@ class Header extends PureComponent {
   }
 }
 
+Header.defaultProps = {
+  user: {},
+};
+
 Header.propTypes = {
-  user: PropTypes.shape({ name: PropTypes.string }).isRequired,
+  user: PropTypes.shape({ name: PropTypes.string }),
+  signout: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({ user: state.auth.user });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, Actions)(Header);
