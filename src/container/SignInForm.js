@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import * as Actions from 'actions';
 
 class SignInForm extends Component {
@@ -92,10 +94,15 @@ SignInForm.defaultProps = {
 
 SignInForm.propTypes = {
   signin: PropTypes.func.isRequired,
-  history: PropTypes.instanceOf(Array).isRequired,
   errors: PropTypes.instanceOf(Array),
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({ errors: state.auth.errors });
 
-export default connect(mapStateToProps, Actions)(SignInForm);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, Actions),
+)(SignInForm);

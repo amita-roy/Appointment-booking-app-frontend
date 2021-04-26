@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { compose } from 'redux';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import Pluralize from 'pluralize';
 import PropTypes from 'prop-types';
 
@@ -18,7 +19,8 @@ class Header extends PureComponent {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { signout } = this.props;
+    const { signout, history } = this.props;
+    history.push('/signin');
     signout();
   }
 
@@ -125,8 +127,11 @@ Header.defaultProps = {
 Header.propTypes = {
   user: PropTypes.shape({ name: PropTypes.string }),
   signout: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({ user: state.auth.user });
 
-export default connect(mapStateToProps, Actions)(Header);
+export default compose(withRouter, connect(mapStateToProps, Actions))(Header);
