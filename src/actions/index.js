@@ -33,6 +33,6 @@ export const signout = () => {
   return {
     type: ACTIONS.AUTH_USER,
     payload: '',
-    user: {},
+    user: null,
   };
 };
