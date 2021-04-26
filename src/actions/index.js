@@ -1,4 +1,5 @@
 import { registerUser, loginUser } from 'api/userApi';
+import fetchServices from 'api/serviceApi';
 import ACTIONS from './actionTypes';
 
 export const signup = (formProps, callback) => async (dispatch) => {
@@ -35,4 +36,14 @@ export const signout = () => {
     payload: '',
     user: null,
   };
+};
+
+export const fetchAllServices = () => async (dispatch) => {
+  const { success, err } = await fetchServices();
+
+  if (err) {
+    dispatch({ type: ACTIONS.SERVICE_ERR, payload: err });
+  } else {
+    dispatch({ type: ACTIONS.FETCH_SERVICES, payload: success });
+  }
 };
