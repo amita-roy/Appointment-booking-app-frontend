@@ -78,7 +78,7 @@ class SignInForm extends Component {
           </div>
           <button
             type="submit"
-            className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end focus:outline-none"
+            className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end focus:outline-none active:bg-opacity-70"
           >
             Sign In
           </button>
