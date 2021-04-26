@@ -12,7 +12,7 @@ import './index.css';
 const initialState = {
   auth: {
     authenticated: localStorage.getItem('token'),
-    user: localStorage.getItem('user'),
+    user: JSON.parse(localStorage.getItem('user')),
   },
 };
 
