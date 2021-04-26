@@ -42,9 +42,7 @@ class SignInForm extends Component {
         {errors && errors.length > 0
           ? errors.map((error, index) => (
             <p key={Math.random() + Math.random()}>
-              {`${
-                index + 1
-              }. ${error}`}
+              {`${index + 1}. ${error}`}
             </p>
           ))
           : ''}
@@ -82,7 +80,7 @@ class SignInForm extends Component {
           </div>
           <button
             type="submit"
-            className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end focus:outline-none active:bg-opacity-70"
+            className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end hover:shadow-lg focus:outline-none active:bg-opacity-70"
           >
             Sign In
           </button>
