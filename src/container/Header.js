@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import Pluralize from 'pluralize';
+import PropTypes from 'prop-types';
 
 import logoSrc from 'assets/images/logo.png';
 
@@ -15,6 +17,8 @@ class Header extends PureComponent {
 
   render() {
     const { itemCount } = this.state;
+    const { user } = this.props;
+    console.log(user);
     return (
       <div className="header">
         <div className="flex justify-between items-center px-16 bg-primary h-20">
@@ -47,27 +51,31 @@ class Header extends PureComponent {
                 <span className="ml-1">0.00</span>
               </p>
             </div>
-            <div className="logged-in flex items-center ml-10">
-              <p className="uppercase pr-3 border-r border-black">john doe</p>
-              <button
-                type="button"
-                className="uppercase pl-3  focus:outline-none"
-              >
-                logout
-              </button>
-            </div>
-            <div className="logged-out ml-10 hidden">
-              <NavLink
-                to="/signup"
-                exact
-                className="uppercase pr-3 border-r border-black"
-              >
-                sign up
-              </NavLink>
-              <NavLink to="/signin" exact className="uppercase pl-3">
-                sign in
-              </NavLink>
-            </div>
+
+            {user ? (
+              <div className="logged-in flex items-center ml-10">
+                <p className="uppercase pr-3 border-r border-black">{user.name}</p>
+                <button
+                  type="button"
+                  className="uppercase pl-3  focus:outline-none"
+                >
+                  logout
+                </button>
+              </div>
+            ) : (
+              <div className="logged-out ml-10">
+                <NavLink
+                  to="/signup"
+                  exact
+                  className="uppercase pr-3 border-r border-black"
+                >
+                  sign up
+                </NavLink>
+                <NavLink to="/signin" exact className="uppercase pl-3">
+                  sign in
+                </NavLink>
+              </div>
+            )}
           </div>
         </div>
         <div className="bg-black text-white flex justify-end items-center px-16 text-sm font-light h-12">
@@ -90,7 +98,7 @@ class Header extends PureComponent {
           <NavLink
             to="/appointments"
             exact
-            className="ml-8 uppercase"
+            className={`ml-8 uppercase ${user ? 'inline-block' : 'hidden'}`}
             activeClassName="text-primary"
           >
             my appointments
@@ -101,4 +109,10 @@ class Header extends PureComponent {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  user: PropTypes.shape({ name: PropTypes.string }).isRequired,
+};
+
+const mapStateToProps = (state) => ({ user: state.auth.user });
+
+export default connect(mapStateToProps)(Header);
