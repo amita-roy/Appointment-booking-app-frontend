@@ -5,13 +5,14 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import * as Actions from 'actions';
 
-class SignInForm extends Component {
+class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: '',
       password: '',
+      name: '',
     };
   }
 
@@ -25,16 +26,16 @@ class SignInForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password } = this.state;
-    const { signin, history } = this.props;
-    signin({ email, password }, () => {
+    const { name, email, password } = this.state;
+    const { signup, history } = this.props;
+    signup({ name, email, password }, () => {
       history.push('/');
     });
-    this.setState({ email: '', password: '' });
+    this.setState({ name: '', email: '', password: '' });
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, name } = this.state;
     const { errors } = this.props;
     const inputClasses = 'block bg-transparent border-b w-full px-5 py-2 focus:outline-none';
     return (
@@ -42,9 +43,7 @@ class SignInForm extends Component {
         {errors && errors.length > 0
           ? errors.map((error, index) => (
             <p key={Math.random() + Math.random()}>
-              {`${
-                index + 1
-              }. ${error}`}
+              {`${index + 1}. ${error}`}
             </p>
           ))
           : ''}
@@ -53,7 +52,22 @@ class SignInForm extends Component {
           <div>
             {' '}
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="email" className="block text-xl">
+            <label htmlFor="name" className="block text-xl">
+              Name
+            </label>
+            <input
+              className={inputClasses}
+              type="text"
+              required
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            {' '}
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor="email" className="block text-xl mt-10">
               Email
             </label>
             <input
@@ -84,7 +98,7 @@ class SignInForm extends Component {
             type="submit"
             className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end focus:outline-none active:bg-opacity-70"
           >
-            Sign In
+            Sign Up
           </button>
         </form>
       </div>
@@ -92,12 +106,12 @@ class SignInForm extends Component {
   }
 }
 
-SignInForm.defaultProps = {
+SignUpForm.defaultProps = {
   errors: [],
 };
 
-SignInForm.propTypes = {
-  signin: PropTypes.func.isRequired,
+SignUpForm.propTypes = {
+  signup: PropTypes.func.isRequired,
   errors: PropTypes.instanceOf(Array),
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
@@ -109,4 +123,4 @@ const mapStateToProps = (state) => ({ errors: state.auth.errors });
 export default compose(
   withRouter,
   connect(mapStateToProps, Actions),
-)(SignInForm);
+)(SignUpForm);
