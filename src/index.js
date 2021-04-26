@@ -14,6 +14,9 @@ const initialState = {
     authenticated: localStorage.getItem('token'),
     user: JSON.parse(localStorage.getItem('user')),
   },
+  allServices: {
+    services: [],
+  },
 };
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
