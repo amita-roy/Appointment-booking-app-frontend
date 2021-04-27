@@ -1,9 +1,9 @@
-import Service from 'components/service/Service';
 import React, { PureComponent } from 'react';
+import Service from 'components/service/Service';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Modal from 'components/modal/Modal';
+import Modal from 'container/modal/Modal';
 import * as Actions from 'actions';
 
 class Services extends PureComponent {
