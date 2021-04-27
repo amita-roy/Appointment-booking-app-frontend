@@ -12,7 +12,7 @@ class Modal extends Component {
 
   render() {
     const { isOpen, service } = this.props;
-    const overlay = 'fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-75';
+    const overlay = 'fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80';
     if (!service) {
       return null;
     }
