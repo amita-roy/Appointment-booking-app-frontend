@@ -38,6 +38,8 @@ export const signout = () => {
   };
 };
 
+export const resetStore = () => ({ type: ACTIONS.RESET_STORE });
+
 export const fetchAllServices = () => async (dispatch) => {
   const { success, err } = await fetchServices();
 
