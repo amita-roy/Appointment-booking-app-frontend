@@ -17,6 +17,7 @@ const initialState = {
   allServices: {
     services: [],
   },
+  selectedServices: [],
 };
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
