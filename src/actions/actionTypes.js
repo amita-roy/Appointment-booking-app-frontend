@@ -3,6 +3,7 @@ const ACTIONS = Object.freeze({
   AUTH_ERR: 'AUTH_ERR',
   FETCH_SERVICES: 'FETCH_SERVICES',
   SERVICE_ERR: 'SERVICE_ERR',
+  RESET_STORE: 'RESET_STORE',
 });
 
 export default ACTIONS;
