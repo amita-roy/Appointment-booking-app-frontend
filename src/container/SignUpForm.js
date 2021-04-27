@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import * as Actions from 'actions';
 import Button from 'components/button/Button';
 import Input from 'components/input/Input';
+import Label from 'components/label/Label';
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -57,9 +58,9 @@ class SignUpForm extends Component {
 
         <form className="w-full flex flex-col" onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="name" className="block text-xl">
+            <Label htmlFor="name" className="block text-xl">
               Name
-            </label>
+            </Label>
             <Input
               className={inputClasses}
               type="text"
@@ -70,9 +71,9 @@ class SignUpForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-xl mt-10">
+            <Label htmlFor="email" className="block text-xl mt-10">
               Email
-            </label>
+            </Label>
             <Input
               className={inputClasses}
               type="email"
@@ -83,9 +84,9 @@ class SignUpForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-xl mt-10">
+            <Label htmlFor="password" className="block text-xl mt-10">
               Password
-            </label>
+            </Label>
             <Input
               className={inputClasses}
               type="password"
