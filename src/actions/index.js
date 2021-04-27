@@ -38,6 +38,8 @@ export const signout = () => {
   };
 };
 
+export const serviceSelected = (service) => ({ type: ACTIONS.SERVICE_SELECTED, payload: service });
+
 export const resetStore = () => ({ type: ACTIONS.RESET_STORE });
 
 export const fetchAllServices = () => async (dispatch) => {
