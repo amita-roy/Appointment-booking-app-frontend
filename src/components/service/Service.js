@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Tag from 'components/tag/Tag';
 
 class Service extends Component {
   handleClick = () => {
@@ -34,14 +35,14 @@ class Service extends Component {
           <div className="bottom-content flex justify-between items-end mt-2">
             <div className="tags flex">
               {service.offer > 0 && (
-                <p className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
+                <Tag className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
                   {`${service.offer}% Off`}
-                </p>
+                </Tag>
               )}
 
-              <p className="px-2 pt-2 pb-1 duration border border-opacity-30 border-black text-sm">
+              <Tag className="px-2 pt-2 pb-1 duration border border-opacity-30 border-black text-sm">
                 {`${service.duration} mins`}
-              </p>
+              </Tag>
             </div>
             <button
               type="submit"
