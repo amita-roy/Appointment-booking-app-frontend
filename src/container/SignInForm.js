@@ -56,8 +56,6 @@ class SignInForm extends Component {
 
         <form className="w-full flex flex-col" onSubmit={this.handleSubmit}>
           <div>
-            {' '}
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="email" className="block text-xl">
               Email
             </label>
