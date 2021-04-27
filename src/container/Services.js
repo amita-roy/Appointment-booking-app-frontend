@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Modal from 'components/Modal';
+import Modal from 'components/modal/Modal';
 import * as Actions from 'actions';
 
 class Services extends PureComponent {

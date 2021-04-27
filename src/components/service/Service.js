@@ -11,7 +11,11 @@ class Service extends Component {
   render() {
     const { service } = this.props;
     return (
-      <div className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl bg-white cursor-pointer transition duration-300 hover:transform hover:scale-105">
+      <div
+        onClick={this.handleClick}
+        aria-hidden="true"
+        className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl bg-white cursor-pointer transition duration-300 hover:transform hover:scale-105"
+      >
         <div className="flex justify-center image-wrapper">
           <div className="h-36 w-36 object-cover object-center rounded-full overflow-hidden">
             <img
@@ -44,27 +48,6 @@ class Service extends Component {
                 {`${service.duration} mins`}
               </Tag>
             </div>
-            <button
-              type="submit"
-              className="flex items-center uppercase focus:outline-none"
-              onClick={this.handleClick}
-            >
-              View
-              <span className="ml-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
       </div>
