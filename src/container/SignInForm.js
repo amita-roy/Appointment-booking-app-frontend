@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import * as Actions from 'actions';
+import Button from 'components/button/Button';
 
 class SignInForm extends Component {
   constructor(props) {
@@ -78,12 +79,12 @@ class SignInForm extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <button
+          <Button
             type="submit"
             className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end hover:shadow-lg focus:outline-none active:bg-opacity-70"
           >
             Sign In
-          </button>
+          </Button>
         </form>
       </div>
     );
