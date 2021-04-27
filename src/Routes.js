@@ -6,6 +6,7 @@ import ServicesPage from 'pages/ServicesPage';
 import SignUpPage from 'pages/SignUpPage';
 import SignInPage from 'pages/SignInPage';
 import CartPage from 'pages/CartPage';
+import AppointmentsPage from 'pages/AppointmentsPage';
 
 const Routes = () => (
   <Switch>
@@ -14,6 +15,7 @@ const Routes = () => (
     <Route path="/signup" exact component={SignUpPage} />
     <Route path="/signin" exact component={SignInPage} />
     <Route path="/cart" exact component={CartPage} />
+    <Route path="/appointments" exact component={AppointmentsPage} />
   </Switch>
 );
 
