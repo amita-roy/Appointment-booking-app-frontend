@@ -17,6 +17,11 @@ class SignInForm extends Component {
     };
   }
 
+  componentWillUnmount() {
+    const { resetStore } = this.props;
+    resetStore();
+  }
+
   handleChange = (event) => {
     const { value } = event.target;
 
@@ -91,7 +96,7 @@ class SignInForm extends Component {
 }
 
 SignInForm.defaultProps = {
-  errors: [],
+  errors: null,
 };
 
 SignInForm.propTypes = {
@@ -100,6 +105,7 @@ SignInForm.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  resetStore: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({ errors: state.auth.errors });

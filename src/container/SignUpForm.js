@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import * as Actions from 'actions';
 import Button from 'components/button/Button';
+import Input from 'components/input/Input';
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -15,6 +16,11 @@ class SignUpForm extends Component {
       password: '',
       name: '',
     };
+  }
+
+  componentWillUnmount() {
+    const { resetStore } = this.props;
+    resetStore();
   }
 
   handleChange = (event) => {
@@ -51,12 +57,10 @@ class SignUpForm extends Component {
 
         <form className="w-full flex flex-col" onSubmit={this.handleSubmit}>
           <div>
-            {' '}
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="name" className="block text-xl">
               Name
             </label>
-            <input
+            <Input
               className={inputClasses}
               type="text"
               required
@@ -66,12 +70,10 @@ class SignUpForm extends Component {
             />
           </div>
           <div>
-            {' '}
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="email" className="block text-xl mt-10">
               Email
             </label>
-            <input
+            <Input
               className={inputClasses}
               type="email"
               required
@@ -81,12 +83,10 @@ class SignUpForm extends Component {
             />
           </div>
           <div>
-            {' '}
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="password" className="block text-xl mt-10">
               Password
             </label>
-            <input
+            <Input
               className={inputClasses}
               type="password"
               required
@@ -108,11 +108,12 @@ class SignUpForm extends Component {
 }
 
 SignUpForm.defaultProps = {
-  errors: [],
+  errors: null,
 };
 
 SignUpForm.propTypes = {
   signup: PropTypes.func.isRequired,
+  resetStore: PropTypes.func.isRequired,
   errors: PropTypes.instanceOf(Array),
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
