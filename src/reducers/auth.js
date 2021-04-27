@@ -3,7 +3,7 @@ import ACTIONS from '../actions/actionTypes';
 const INITIAL_STATE = {
   authenticated: '',
   user: {},
-  errors: [],
+  errors: null,
 };
 
 const auth = (state = INITIAL_STATE, action) => {
@@ -12,6 +12,8 @@ const auth = (state = INITIAL_STATE, action) => {
       return { ...state, authenticated: action.payload, user: action.user };
     case ACTIONS.AUTH_ERR:
       return { ...state, errors: action.payload };
+    case ACTIONS.RESET_STORE:
+      return { ...state, errors: null };
 
     default:
       return state;
