@@ -15,12 +15,11 @@ const requireAuth = (ChildComponent) => {
     shouldNavigateAway() {
       const { auth, history } = this.props;
       if (!auth) {
-        history.push('/');
+        history.push('/signin');
       }
     }
 
     render() {
-      // eslint-disable-next-line react/jsx-props-no-spreading
       return <ChildComponent {...this.props} />;
     }
   }
