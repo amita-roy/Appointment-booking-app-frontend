@@ -6,7 +6,7 @@ const Button = (props) => {
     children, type, className, ...rest
   } = props;
   return (
-  // eslint-disable-next-line
+
     <button type={type} className={className} {...rest}>
       {children}
     </button>
