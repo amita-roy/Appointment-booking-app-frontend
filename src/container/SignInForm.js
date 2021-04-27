@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import * as Actions from 'actions';
 import Button from 'components/button/Button';
+import Input from 'components/input/Input';
 
 class SignInForm extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class SignInForm extends Component {
             <label htmlFor="email" className="block text-xl">
               Email
             </label>
-            <input
+            <Input
               className={inputClasses}
               type="email"
               required
@@ -65,12 +66,10 @@ class SignInForm extends Component {
             />
           </div>
           <div>
-            {' '}
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="password" className="block text-xl mt-10">
               Password
             </label>
-            <input
+            <Input
               className={inputClasses}
               type="password"
               required
