@@ -20,7 +20,8 @@
       "import/no-unresolved": "off",
       "no-shadow": "off",
       "react/jsx-props-no-spreading": "off",
-      "react/button-has-type": "off"
+      "react/button-has-type": "off",
+      "jsx-a11y/label-has-associated-control": "off"
     },
     "ignorePatterns": [
       "dist/",
