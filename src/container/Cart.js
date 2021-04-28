@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import EmptycartSvg from 'assets/images/empty_cart.svg';
@@ -8,7 +10,33 @@ import Input from 'components/input/Input';
 import Button from 'components/button/Button';
 
 class Cart extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: '',
+      time: '',
+    };
+  }
+
+  handleChange = (event) => {
+    const { value } = event.target;
+
+    this.setState({
+      [event.target.name]: value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { history, authenticated } = this.props;
+    if (authenticated === null) {
+      history.push('/signin');
+    }
+  };
+
   render() {
+    const { date, time } = this.state;
     const { selectedServices } = this.props;
     return (
       <div className="py-10 px-8">
@@ -38,18 +66,32 @@ class Cart extends PureComponent {
                 <img src={logo} alt="logo" />
               </div>
               <h1 className="text-4xl text-center mt-3">Encapture</h1>
-              <form className="mt-10 w-full">
+              <form className="mt-10 w-full" onSubmit={this.handleSubmit}>
                 <div>
                   <Label htmlFor="date" className="block mb-2">
                     Date
                   </Label>
-                  <Input type="date" className="block border-b w-full" />
+                  <Input
+                    name="date"
+                    type="date"
+                    className="block border-b w-full"
+                    value={date}
+                    onChange={this.handleChange}
+                    required
+                  />
                 </div>
                 <div className="mt-8">
                   <Label htmlFor="time" className="block mb-2">
                     Time
                   </Label>
-                  <Input type="time" className="block border-b w-full" />
+                  <Input
+                    name="time"
+                    type="time"
+                    className="block border-b w-full"
+                    value={time}
+                    onChange={this.handleChange}
+                    required
+                  />
                 </div>
                 <Button
                   type="submit"
@@ -76,12 +118,20 @@ class Cart extends PureComponent {
 
 Cart.defaultProps = {
   selectedServices: null,
+  authenticated: null,
 };
 
 Cart.propTypes = {
   selectedServices: PropTypes.instanceOf(Array),
+  authenticated: PropTypes.string,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
-const mapStateToProps = (state) => ({ selectedServices: state.selectedServices });
+const mapStateToProps = (state) => ({
+  selectedServices: state.selectedServices,
+  authenticated: state.auth.authenticated,
+});
 
-export default connect(mapStateToProps)(Cart);
+export default compose(withRouter, connect(mapStateToProps))(Cart);
