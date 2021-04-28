@@ -26,7 +26,9 @@ const requireAuth = (ChildComponent) => {
 
   ComposedComponent.propTypes = {
     auth: PropTypes.string.isRequired,
-    history: PropTypes.instanceOf(Array).isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   const mapStateToProps = (state) => ({ auth: state.auth.authenticated });
