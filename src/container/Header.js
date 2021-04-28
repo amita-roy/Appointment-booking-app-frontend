@@ -9,14 +9,6 @@ import * as Actions from 'actions';
 import logoSrc from 'assets/images/logo.png';
 
 class Header extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      itemCount: 0,
-    };
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     const { signout, history } = this.props;
@@ -25,8 +17,8 @@ class Header extends PureComponent {
   }
 
   render() {
-    const { itemCount } = this.state;
-    const { user } = this.props;
+    const { user, selectedServices, totalItemsPrice } = this.props;
+    const itemCount = selectedServices.length;
     return (
       <div className="header">
         <div className="flex justify-between items-center px-16 bg-primary h-20">
@@ -56,7 +48,7 @@ class Header extends PureComponent {
               </p>
               <p className="pl-3">
                 <span>$</span>
-                <span className="ml-1">0.00</span>
+                <span className="ml-1">{`${totalItemsPrice || 0}.00`}</span>
               </p>
             </div>
 
@@ -130,8 +122,20 @@ Header.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  selectedServices: PropTypes.instanceOf(Array).isRequired,
+  totalItemsPrice: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => ({ user: state.auth.user });
+const mapStateToProps = (state) => {
+  const { selectedServices } = state;
+  const totalItemsPrice = selectedServices.length > 0 && selectedServices.reduce(
+    (acc, curr) => acc + curr.price, 0,
+  );
+  return {
+    user: state.auth.user,
+    selectedServices,
+    totalItemsPrice,
+  };
+};
 
 export default compose(withRouter, connect(mapStateToProps, Actions))(Header);
