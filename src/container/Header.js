@@ -48,7 +48,7 @@ class Header extends PureComponent {
               </p>
               <p className="pl-3">
                 <span>$</span>
-                <span className="ml-1">{`${totalItemsPrice || 0}.00`}</span>
+                <span className="ml-1">{`${totalItemsPrice}.00`}</span>
               </p>
             </div>
 
@@ -128,9 +128,12 @@ Header.propTypes = {
 
 const mapStateToProps = (state) => {
   const { selectedServices } = state;
-  const totalItemsPrice = selectedServices.length > 0 && selectedServices.reduce(
-    (acc, curr) => acc + curr.price, 0,
-  );
+  const totalItemsPrice = selectedServices.length > 0
+    ? selectedServices.reduce(
+      (acc, curr) => acc + curr.price,
+      0,
+    )
+    : 0;
   return {
     user: state.auth.user,
     selectedServices,
