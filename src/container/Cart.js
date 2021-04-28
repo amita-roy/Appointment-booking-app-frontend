@@ -8,6 +8,7 @@ import logo from 'assets/images/logo.png';
 import Label from 'components/label/Label';
 import Input from 'components/input/Input';
 import Button from 'components/button/Button';
+import * as Actions from 'actions';
 
 class Cart extends PureComponent {
   constructor(props) {
@@ -29,10 +30,29 @@ class Cart extends PureComponent {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { history, authenticated } = this.props;
+    const {
+      totalItemsPrice,
+      history,
+      authenticated,
+      createAppointment,
+      selectedServices,
+    } = this.props;
+    const { date, time } = this.state;
+    const services = selectedServices && selectedServices;
     if (authenticated === null) {
       history.push('/signin');
     }
+    createAppointment(
+      {
+        date,
+        time,
+        services,
+        total_amount: totalItemsPrice,
+      },
+      () => {
+        history.push('/appointments');
+      },
+    );
   };
 
   render() {
@@ -127,11 +147,20 @@ Cart.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  createAppointment: PropTypes.func.isRequired,
+  totalItemsPrice: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  selectedServices: state.selectedServices,
-  authenticated: state.auth.authenticated,
-});
+const mapStateToProps = (state) => {
+  const { selectedServices } = state;
+  const totalItemsPrice = selectedServices.length > 0
+    ? selectedServices.reduce((acc, curr) => acc + curr.price, 0)
+    : 0;
+  return {
+    selectedServices,
+    authenticated: state.auth.authenticated,
+    totalItemsPrice,
+  };
+};
 
-export default compose(withRouter, connect(mapStateToProps))(Cart);
+export default compose(withRouter, connect(mapStateToProps, Actions))(Cart);
