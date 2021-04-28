@@ -23,8 +23,11 @@ class Modal extends Component {
   }
 
   render() {
-    const { isOpen, service, isAdded } = this.props;
+    const {
+      isOpen, service, isAdded, selectedServices,
+    } = this.props;
     const overlay = 'fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80';
+    const lastAdded = selectedServices.length > 0 ? selectedServices[selectedServices.length - 1].name : '';
 
     if (!service) {
       return null;
@@ -65,7 +68,7 @@ class Modal extends Component {
             <p className="mt-6">{service.long_desc}</p>
           </div>
           <div className="flex justify-end">
-            {isAdded ? (
+            {(isAdded || lastAdded === service.name) ? (
               <Button
                 disabled
                 type="button"
@@ -107,12 +110,13 @@ Modal.propTypes = {
     long_desc: PropTypes.string,
   }),
   isAdded: PropTypes.bool.isRequired,
+  selectedServices: PropTypes.instanceOf(Array).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   const { selectedServices } = state;
   const { service } = ownProps;
-  return { isAdded: selectedServices.includes(service) };
+  return { isAdded: selectedServices.includes(service), selectedServices };
 };
 
 export default connect(mapStateToProps, Actions)(Modal);
