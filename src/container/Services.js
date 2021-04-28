@@ -33,20 +33,24 @@ class Services extends PureComponent {
     const { services } = this.props;
     const { isModalOpen, clickedService } = this.state;
     return (
-      <div className="grid grid-cols-2 xl:grid-cols-3 gap-12">
-        {services
-          && services.map((service) => (
-            <Service
-              openModal={this.onOpenModal}
-              key={service.name}
-              service={service}
-            />
-          ))}
-        <Modal
-          isOpen={isModalOpen}
-          onClose={this.onCloseModal}
-          service={clickedService}
-        />
+      <div>
+        <h1 className="mb-10 text-4xl">All Services</h1>
+
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-12">
+          {services
+            && services.map((service) => (
+              <Service
+                openModal={this.onOpenModal}
+                key={service.name}
+                service={service}
+              />
+            ))}
+          <Modal
+            isOpen={isModalOpen}
+            onClose={this.onCloseModal}
+            service={clickedService}
+          />
+        </div>
       </div>
     );
   }
