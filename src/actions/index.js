@@ -1,5 +1,6 @@
 import { registerUser, loginUser } from 'api/userApi';
 import fetchServices from 'api/serviceApi';
+import { newAppointment, fetchAllAppointments } from 'api/appointmentApi';
 import ACTIONS from './actionTypes';
 
 export const signup = (formProps, callback) => async (dispatch) => {
@@ -49,5 +50,24 @@ export const fetchAllServices = () => async (dispatch) => {
     dispatch({ type: ACTIONS.SERVICE_ERR, payload: err });
   } else {
     dispatch({ type: ACTIONS.FETCH_SERVICES, payload: success });
+  }
+};
+
+export const createAppointment = (appointment) => async (dispatch) => {
+  const { success, err } = await newAppointment(appointment);
+
+  if (err) {
+    dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
+  } else {
+    dispatch({ type: ACTIONS.CREATE_APPOINTMENT, payload: success });
+  }
+};
+export const fetchAppointments = (appointment) => async (dispatch) => {
+  const { success, err } = await fetchAllAppointments(appointment);
+
+  if (err) {
+    dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
+  } else {
+    dispatch({ type: ACTIONS.FETCH_APPOINTMENTS, payload: success });
   }
 };
