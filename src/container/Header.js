@@ -47,7 +47,7 @@ class Header extends PureComponent {
                 <span className="ml-1">{Pluralize('Item', itemCount)}</span>
               </p>
               <p className="pl-3">
-                <span>$</span>
+                <span>kr</span>
                 <span className="ml-1">{`${totalItemsPrice}.00`}</span>
               </p>
             </div>
