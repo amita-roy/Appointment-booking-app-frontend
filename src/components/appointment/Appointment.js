@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Pluralize from 'pluralize';
 
 const Appointment = (props) => {
   const { appointment, includedServices } = props;
-  const { attributes } = appointment;
-  const { data } = appointment.relationships.services;
+  const { attributes } = appointment && appointment;
+  const { data } = appointment && appointment.relationships.services;
 
   const getServices = (ids, services) => ids.map((id) => services.find((s) => id.id === s.id));
   return (
@@ -24,7 +25,7 @@ const Appointment = (props) => {
         </div>
       </div>
       <div className="mt-8 flex justify-between items-center">
-        <p className="text-xl">{`Total Services ${data.length}`}</p>
+        <p className="text-xl">{`Total ${Pluralize('Service', data.length)} ${data.length}`}</p>
         <p className="text-xl text-right">{`Total Amount Kr ${attributes['total-amount']}`}</p>
       </div>
       <small className="text-black text-opacity-60">Pay at location.</small>
