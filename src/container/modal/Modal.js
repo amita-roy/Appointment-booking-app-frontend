@@ -40,31 +40,35 @@ class Modal extends Component {
         overlayClassName={overlay}
       >
         <div className="h-64 w-64  mb-8 mx-auto object-cover object-center rounded-full overflow-hidden">
-          <img src={service.image} alt={service.name} className="w-full" />
+          <img
+            src={service.attributes.image}
+            alt={service.attributes.name}
+            className="w-full"
+          />
         </div>
         <div className="content">
           <div className="top-content flex justify-between items-start">
             <div className="top-left-content">
-              <p className="title text-xl">{service.name}</p>
+              <p className="title text-xl">{service.attributes.name}</p>
               <p className="description text-sm text-opacity-40 text-black">
-                {service.description}
+                {service.attributes.description}
               </p>
             </div>
-            <p className="price text-xl">{`${service.price} SEK`}</p>
+            <p className="price text-xl">{`${service.attributes.price} SEK`}</p>
           </div>
           <div className="bottom-content mt-8">
             <div className="tags flex">
-              {service.offer > 0 && (
+              {service.attributes.offer > 0 && (
                 <Tag className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
-                  {`${service.offer}% Off`}
+                  {`${service.attributes.offer}% Off`}
                 </Tag>
               )}
 
               <Tag className="px-2 pt-2 pb-1 duration border border-opacity-30 border-black text-sm">
-                {`${service.duration} mins`}
+                {`${service.attributes.duration} mins`}
               </Tag>
             </div>
-            <p className="mt-6">{service.long_desc}</p>
+            <p className="mt-6">{service.attributes['long-desc']}</p>
           </div>
           <div className="flex justify-end">
             {isAdded ? (
@@ -100,13 +104,15 @@ Modal.propTypes = {
   serviceSelected: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   service: PropTypes.shape({
-    name: PropTypes.string,
-    description: PropTypes.string,
-    duration: PropTypes.number,
-    price: PropTypes.number,
-    offer: PropTypes.string,
-    image: PropTypes.string,
-    long_desc: PropTypes.string,
+    attributes: PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      duration: PropTypes.number,
+      price: PropTypes.number,
+      offer: PropTypes.string,
+      image: PropTypes.string,
+      'long-desc': PropTypes.string,
+    }),
   }),
   isAdded: PropTypes.bool.isRequired,
 };
