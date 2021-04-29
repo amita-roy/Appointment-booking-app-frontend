@@ -5,7 +5,7 @@ const INITIAL_STATE = [];
 const appointments = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ACTIONS.FETCH_APPOINTMENTS:
-      return [...action.payload];
+      return action.payload;
     case ACTIONS.CREATE_APPOINTMENT:
       return [...state, action.payload];
     default:
