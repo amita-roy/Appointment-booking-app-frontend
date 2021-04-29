@@ -49,7 +49,7 @@ export const fetchAllServices = () => async (dispatch) => {
   if (err) {
     dispatch({ type: ACTIONS.SERVICE_ERR, payload: err });
   } else {
-    dispatch({ type: ACTIONS.FETCH_SERVICES, payload: success });
+    dispatch({ type: ACTIONS.FETCH_SERVICES, payload: success.data });
   }
 };
 
@@ -63,12 +63,12 @@ export const createAppointment = (appointment, callback) => async (dispatch) => 
     callback();
   }
 };
-export const fetchAppointments = (appointment) => async (dispatch) => {
-  const { success, err } = await fetchAllAppointments(appointment);
+export const fetchAppointments = () => async (dispatch) => {
+  const { success, err } = await fetchAllAppointments();
 
   if (err) {
     dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
   } else {
-    dispatch({ type: ACTIONS.FETCH_APPOINTMENTS, payload: success });
+    dispatch({ type: ACTIONS.FETCH_APPOINTMENTS, payload: success.data });
   }
 };
