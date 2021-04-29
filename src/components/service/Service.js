@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Tag from 'components/tag/Tag';
 
-class Service extends Component {
+export class Service extends Component {
   handleClick = () => {
     const { service, openModal } = this.props;
     openModal(service);
@@ -14,7 +14,7 @@ class Service extends Component {
       <div
         onClick={this.handleClick}
         aria-hidden="true"
-        className="w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl bg-white cursor-pointer transition duration-300 hover:transform hover:scale-105"
+        className="service w-80 border-2 py-4 px-5 lg:w-96 border-opacity-50 border-black shadow-xl bg-white cursor-pointer transition duration-300 hover:transform hover:scale-105"
       >
         <div className="flex justify-center image-wrapper">
           <div className="h-36 w-36 object-cover object-center rounded-full overflow-hidden">
