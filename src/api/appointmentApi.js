@@ -13,11 +13,17 @@ export const newAppointment = async (appointment) => {
   }
 };
 
-export const fetchAllAppointments = async (appointment) => {
+export const fetchAllAppointments = async () => {
+  const token = localStorage.getItem('token');
+  const headers = {
+    Authorization: `Basic ${token}`,
+  };
   try {
-    const response = await client.get('/api/v1/appointments', appointment);
-    return { success: response.data.appointments };
+    const response = await client.get('/api/v1/appointments', {
+      headers,
+    });
+    return { success: response.data };
   } catch (error) {
-    return { err: error.response.data.errors };
+    return { err: error.response.data };
   }
 };
