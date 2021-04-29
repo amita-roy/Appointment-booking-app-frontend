@@ -74,10 +74,10 @@ class Cart extends PureComponent {
               </div>
               {selectedServices
                 && selectedServices.map((service) => (
-                  <div key={service.name} className="flex mb-3">
-                    <p className="w-36">{service.name}</p>
-                    <p className="w-24 ml-8">{`${service.duration} mins`}</p>
-                    <p className="w-24 ml-8">{`kr ${service.price}`}</p>
+                  <div key={service.attributes.name} className="flex mb-3">
+                    <p className="w-36">{service.attributes.name}</p>
+                    <p className="w-24 ml-8">{`${service.attributes.duration} mins`}</p>
+                    <p className="w-24 ml-8">{`kr ${service.attributes.price}`}</p>
                   </div>
                 ))}
             </div>
@@ -154,7 +154,7 @@ Cart.propTypes = {
 const mapStateToProps = (state) => {
   const { selectedServices } = state;
   const totalItemsPrice = selectedServices.length > 0
-    ? selectedServices.reduce((acc, curr) => acc + curr.price, 0)
+    ? selectedServices.reduce((acc, curr) => acc + curr.attributes.price, 0)
     : 0;
   return {
     selectedServices,
