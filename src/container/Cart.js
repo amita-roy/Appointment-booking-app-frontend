@@ -59,7 +59,7 @@ class Cart extends PureComponent {
     const { date, time } = this.state;
     const { selectedServices } = this.props;
     return (
-      <div className="py-10 px-8">
+      <div className="py-10 px-8 ">
         {selectedServices && selectedServices.length > 0 ? (
           <div
             className="flex justify-between m-auto"
@@ -81,7 +81,7 @@ class Cart extends PureComponent {
                   </div>
                 ))}
             </div>
-            <div className="border-2 w-96 ml-8 px-4 py-8">
+            <div className="w-96 ml-8 px-4 py-8 bg-white shadow-lg">
               <div className="w-1/2 m-auto">
                 <img src={logo} alt="logo" />
               </div>

@@ -69,6 +69,6 @@ export const fetchAppointments = () => async (dispatch) => {
   if (err) {
     dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
   } else {
-    dispatch({ type: ACTIONS.FETCH_APPOINTMENTS, payload: success.data });
+    dispatch({ type: ACTIONS.FETCH_APPOINTMENTS, payload: success });
   }
 };

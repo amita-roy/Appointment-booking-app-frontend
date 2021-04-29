@@ -3,9 +3,14 @@ import RequireAuth from 'components/requiredAuth';
 import Appointments from 'container/Appointments';
 
 const AppointmentsPage = () => (
-  <div style={{ minHeight: 'calc(100vh - 608px)' }}>
-    <h1>My Appointments</h1>
-    <Appointments />
+  <div
+    className="py-16 px-10 bg-primary bg-opacity-20"
+    style={{ minHeight: 'calc(100vh - 608px)' }}
+  >
+    <div className="m-auto" style={{ maxWidth: '1024px' }}>
+      <h1 className="text-4xl">Your Appointments</h1>
+      <Appointments />
+    </div>
   </div>
 );
 
