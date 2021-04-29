@@ -94,7 +94,7 @@ class Cart extends PureComponent {
                   <Input
                     name="date"
                     type="date"
-                    className="block border-b w-full"
+                    className="block border-b w-full px-5 py-2 focus:outline-none cursor-pointer"
                     value={date}
                     onChange={this.handleChange}
                     required
@@ -107,7 +107,7 @@ class Cart extends PureComponent {
                   <Input
                     name="time"
                     type="time"
-                    className="block border-b w-full"
+                    className="block border-b w-full px-5 py-2 focus:outline-none cursor-pointer"
                     value={time}
                     onChange={this.handleChange}
                     required
