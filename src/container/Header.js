@@ -130,7 +130,7 @@ const mapStateToProps = (state) => {
   const { selectedServices } = state;
   const totalItemsPrice = selectedServices.length > 0
     ? selectedServices.reduce(
-      (acc, curr) => acc + curr.price,
+      (acc, curr) => acc + curr.attributes.price,
       0,
     )
     : 0;
