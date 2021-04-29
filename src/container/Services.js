@@ -37,8 +37,8 @@ class Services extends PureComponent {
         <h1 className="mb-10 text-4xl">All Services</h1>
 
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-12">
-          {services.data
-            && services.data.map((service) => (
+          {services
+            && services.map((service) => (
               <Service
                 openModal={this.onOpenModal}
                 key={service.attributes.name}
