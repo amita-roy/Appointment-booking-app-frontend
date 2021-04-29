@@ -37,11 +37,11 @@ class Services extends PureComponent {
         <h1 className="mb-10 text-4xl">All Services</h1>
 
         <div className="grid grid-cols-2 xl:grid-cols-3 gap-12">
-          {services
-            && services.map((service) => (
+          {services.data
+            && services.data.map((service) => (
               <Service
                 openModal={this.onOpenModal}
-                key={service.name}
+                key={service.attributes.name}
                 service={service}
               />
             ))}
@@ -57,7 +57,7 @@ class Services extends PureComponent {
 }
 
 Services.propTypes = {
-  services: PropTypes.instanceOf(Array).isRequired,
+  services: PropTypes.instanceOf(Object).isRequired,
   fetchAllServices: PropTypes.func.isRequired,
 };
 
