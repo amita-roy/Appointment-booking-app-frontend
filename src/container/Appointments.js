@@ -14,26 +14,35 @@ class Appointments extends Component {
     const { appointments, includedServices } = this.props;
     return (
       <div>
-        {appointments.map((appointment) => (
-          <Appointment
-            key={appointment.id}
-            appointment={appointment}
-            includedServices={includedServices}
-          />
-        ))}
+        {
+          appointments.length > 0 ? (
+            <div>
+              {appointments.map((appointment) => (
+                <Appointment
+                  key={appointment.id}
+                  appointment={appointment}
+                  includedServices={includedServices}
+                />
+              ))}
+            </div>
+
+          ) : <h1 className="text-4xl mt-20">No Appointments yet,  We are missing you...</h1>
+        }
       </div>
+
     );
   }
 }
 
 Appointments.defaultProps = {
   appointments: [],
+  includedServices: [],
 };
 
 Appointments.propTypes = {
   appointments: PropTypes.instanceOf(Array),
   fetchAppointments: PropTypes.func.isRequired,
-  includedServices: PropTypes.instanceOf(Array).isRequired,
+  includedServices: PropTypes.instanceOf(Array),
 };
 
 const mapStateToProps = (state) => ({

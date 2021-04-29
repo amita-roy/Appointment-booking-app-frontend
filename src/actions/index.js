@@ -54,11 +54,10 @@ export const fetchAllServices = () => async (dispatch) => {
 };
 
 export const createAppointment = (appointment, callback) => async (dispatch) => {
-  const { success, err } = await newAppointment(appointment);
+  const { err } = await newAppointment(appointment);
   if (err) {
     dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
   } else {
-    dispatch({ type: ACTIONS.CREATE_APPOINTMENT, payload: success });
     dispatch({ type: ACTIONS.RESET_SELECTED_SERVICES });
     callback();
   }

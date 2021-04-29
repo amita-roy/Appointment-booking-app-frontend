@@ -4,8 +4,8 @@ import Pluralize from 'pluralize';
 
 const Appointment = (props) => {
   const { appointment, includedServices } = props;
-  const { attributes } = appointment && appointment;
-  const { data } = appointment && appointment.relationships.services;
+  const { attributes } = appointment;
+  const { data } = appointment.relationships.services;
 
   const getServices = (ids, services) => ids.map((id) => services.find((s) => id.id === s.id));
   return (
@@ -13,7 +13,7 @@ const Appointment = (props) => {
       <div className="flex justify-between">
         <div>
           {getServices(data, includedServices).map((service) => (
-            <div key={service.attributes.name} className="flex">
+            <div key={service.attributes.name} className="flex mt-4">
               <p className="w-52 lg:w-80">{service.attributes.name}</p>
               <p className="ml-4">{`${service.attributes.duration} mins`}</p>
             </div>
@@ -33,9 +33,14 @@ const Appointment = (props) => {
   );
 };
 
+Appointment.defaultProps = {
+  appointment: {},
+  includedServices: [],
+};
+
 Appointment.propTypes = {
-  appointment: PropTypes.instanceOf(Object).isRequired,
-  includedServices: PropTypes.instanceOf(Array).isRequired,
+  appointment: PropTypes.instanceOf(Object),
+  includedServices: PropTypes.instanceOf(Array),
 };
 
 export default Appointment;
