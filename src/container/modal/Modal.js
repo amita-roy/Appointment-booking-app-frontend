@@ -120,7 +120,9 @@ Modal.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   const { selectedServices } = state;
   const { service } = ownProps;
-  const isAdded = selectedServices.filter((item) => item.name === (service && service.name));
+  const isAdded = selectedServices.filter(
+    (item) => item.attributes.name === (service && service.attributes.name),
+  );
   return { isAdded: isAdded.length > 0, selectedServices };
 };
 
