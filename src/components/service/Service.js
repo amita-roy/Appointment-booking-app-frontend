@@ -19,7 +19,7 @@ class Service extends Component {
         <div className="flex justify-center image-wrapper">
           <div className="h-36 w-36 object-cover object-center rounded-full overflow-hidden">
             <img
-              src={service.image}
+              src={service.attributes.image}
               alt="skin care"
               className="h-full w-auto"
             />
@@ -28,24 +28,24 @@ class Service extends Component {
         <div className="card-content mt-3 ">
           <div className="top-content flex justify-between items-start">
             <div className="top-left-content">
-              <p className="title text-xl">{service.name}</p>
+              <p className="title text-xl">{service.attributes.name}</p>
               <p className="description text-sm text-opacity-40 text-black">
-                {service.description}
+                {service.attributes.description}
               </p>
             </div>
-            <p className="price text-xl">{`${service.price} SEK`}</p>
+            <p className="price text-xl">{`${service.attributes.price} SEK`}</p>
           </div>
 
           <div className="bottom-content flex justify-between items-end mt-2">
             <div className="tags flex">
-              {service.offer > 0 && (
+              {service.attributes.offer > 0 && (
                 <Tag className="px-2 pt-2 pb-1 bg-primary mr-3 text-sm offer border border-opacity-30 border-black">
-                  {`${service.offer}% Off`}
+                  {`${service.attributes.offer}% Off`}
                 </Tag>
               )}
 
               <Tag className="px-2 pt-2 pb-1 duration border border-opacity-30 border-black text-sm">
-                {`${service.duration} mins`}
+                {`${service.attributes.duration} mins`}
               </Tag>
             </div>
           </div>
@@ -57,12 +57,14 @@ class Service extends Component {
 
 Service.propTypes = {
   service: PropTypes.shape({
-    name: PropTypes.string,
-    description: PropTypes.string,
-    duration: PropTypes.number,
-    price: PropTypes.number,
-    offer: PropTypes.string,
-    image: PropTypes.string,
+    attributes: PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      duration: PropTypes.number,
+      price: PropTypes.number,
+      offer: PropTypes.string,
+      image: PropTypes.string,
+    }),
   }).isRequired,
   openModal: PropTypes.func.isRequired,
 };
