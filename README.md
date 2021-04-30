@@ -1,6 +1,6 @@
-# Encapture Frontend
+# Encapture Frontend (Final Capstone)
 
-> Project built with React & Redux. This project is frontend of an appointment booking app for salon services. I have used "Talwind" for style. User can take following actions:
+> Project built with React & Redux. This project is frontend of an appointment booking app for salon services. I have used "Talwind" for style. This app built for tablet to desktop screen ( >= 768) size. User can take following actions:
 
     - User can sign up to salon app
     - User can sign in with existing account
@@ -17,24 +17,14 @@
 
 
 ### Live link
-[Encapture]()
+[Encapture](https://encapture.vercel.app/)
 
 ### Link for the backend repository
 [Encapture Backend](https://github.com/Amita-Roy/Encapture-API)
 
 ### Screenshots
 
-> All the screenshots are for a logged in user.
-
-- ![Home Page](./screenshots/)
-
-- ![Services Page](./screenshots/)
-
-- ![Service details](./screenshots/)
-
-- ![Cart Page](./screenshots/)
-
-- ![Appointment Page](./screenshots/)
+- ![Different Devices](./screenshots/encapture.png)
 
 ## Built With
 
