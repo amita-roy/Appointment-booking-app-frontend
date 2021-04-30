@@ -15,7 +15,7 @@ module.exports = {
       white: colors.white,
       decoration: '#300C4B',
       homepageDeco: '#FFA400',
-      red: colors.red,
+      errorColor: colors.red,
     },
     extend: {
       backgroundImage: () => ({
