@@ -1,4 +1,95 @@
-# Getting Started with Create React App
+# Encapture Frontend
+
+> Project built with React & Redux. This project is frontend of an appointment booking app for salon services. I have used "Talwind" for style. User can take following actions:
+
+    - User can sign up to salon app
+    - User can sign in with existing account
+    - A signed user will have name and a logout button on the top
+    - User can see and reserve services for booking
+    - Services can be added to cart without sign in but at time of booking you will be redirected to sign in page
+    - On the header, User can see the count of items and total amout of items in cart
+    - On the click of a service card, a modal will open for service details 
+    - A signed in user can see her appointments on My Appointment page
+    - A service can be added once for per appointment
+    - If a service is already in cart the Reserve button will be disable with text "Added"
+    - On the click of shopping bag on header will take you to cart page
+    - Using Jest and React testing liabrary for testing
+
+
+### Live link
+[Encapture]()
+
+### Link for the backend repository
+[Encapture Backend](https://github.com/Amita-Roy/Encapture-API)
+
+### Screenshots
+
+> All the screenshots are for a logged in user.
+
+- ![Home Page](./screenshots/)
+
+- ![Services Page](./screenshots/)
+
+- ![Service details](./screenshots/)
+
+- ![Cart Page](./screenshots/)
+
+- ![Appointment Page](./screenshots/)
+
+## Built With
+
+- React
+- Redux
+- Redux Thunk
+- Axios
+- Tailwind
+- Jest
+- React Testing Liabrary
+- Google Fonts (Josefin Sans)
+- ESLint
+- Stylelint
+
+
+### Prerequisites
+
+Node
+
+**Setup**
+
+- Clone this repository with: `git clone git@github.com:Amita-Roy/Encapture-Client.git` using your terminal or command line.
+
+- Change to the project directory by entering cd 'encapture-client' in the terminal
+
+- Next run `npm install` to install the necessary dependencies
+
+- Finally run the  `npm run build` and `npm start` to start the application
+
+
+### Usage
+
+Start server with:
+
+```
+    npm start
+```
+
+Run Test with:
+
+```
+    npm test
+```
+
+
+## Author
+
+👤 **Amita Roy**
+
+- Amita Roy: [Portfolio](https://amitaroy.com/)
+- Github: [@Amita](https://github.com/Amita-Roy)
+- Twitter: [@Amita](https://twitter.com/AmitaRoy14)
+- Linkedin: [@Amita](https://www.linkedin.com/in/amita-roy/)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
