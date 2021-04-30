@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import Service from 'components/service/Service';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import LoadingSvg from 'assets/images/loading.svg';
 
 import Modal from 'container/modal/Modal';
 import * as Actions from 'actions';
@@ -36,28 +37,34 @@ class Services extends PureComponent {
       <div>
         <h1 className="mb-10 text-4xl">All Services</h1>
 
-        <div className="grid grid-cols-2 xl:grid-cols-3 gap-12">
-          {services
-            && services.map((service) => (
+        {services && services.length > 0 ? (
+          <div className="grid grid-cols-2 xl:grid-cols-3 gap-12">
+            {services.map((service) => (
               <Service
                 openModal={this.onOpenModal}
                 key={service.attributes.name}
                 service={service}
               />
             ))}
-          <Modal
-            isOpen={isModalOpen}
-            onClose={this.onCloseModal}
-            service={clickedService}
-          />
-        </div>
+            <Modal
+              isOpen={isModalOpen}
+              onClose={this.onCloseModal}
+              service={clickedService}
+            />
+          </div>
+        ) : (
+          <div className="flex flex-col items-center">
+            <p className="text-lg mb-10">Loading..., Wait will be over soon!</p>
+            <img src={LoadingSvg} alt="loading" />
+          </div>
+        )}
       </div>
     );
   }
 }
 
 Services.propTypes = {
-  services: PropTypes.instanceOf(Object).isRequired,
+  services: PropTypes.instanceOf(Array).isRequired,
   fetchAllServices: PropTypes.func.isRequired,
 };
 
