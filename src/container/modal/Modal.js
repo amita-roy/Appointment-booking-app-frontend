@@ -8,9 +8,9 @@ import Tag from 'components/tag/Tag';
 import Button from 'components/button/Button';
 import styles from './modal.module.css';
 
-ReactModal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root');
 
-class Modal extends Component {
+export class Modal extends Component {
   onModelClose = () => {
     const { onClose } = this.props;
     onClose();
