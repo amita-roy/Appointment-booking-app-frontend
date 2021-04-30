@@ -2,18 +2,18 @@
 
 > Project built with React & Redux. This project is frontend of an appointment booking app for salon services. I have used "Talwind" for style. This app built for tablet to desktop screen ( >= 768) size. User can take following actions:
 
-    - User can sign up to salon app
-    - User can sign in with existing account
-    - A signed user will have name and a logout button on the top
+    - User can sign up for the salon app
+    - User can sign in with the existing account
+    - A signed user will have a name and a logout button on the top
     - User can see and reserve services for booking
-    - Services can be added to cart without sign in but at time of booking you will be redirected to sign in page
-    - On the header, User can see the count of items and total amout of items in cart
-    - On the click of a service card, a modal will open for service details 
-    - A signed in user can see her appointments on My Appointment page
-    - A service can be added once for per appointment
-    - If a service is already in cart the Reserve button will be disable with text "Added"
-    - On the click of shopping bag on header will take you to cart page
-    - Using Jest and React testing liabrary for testing
+    - Services can be added to the cart without sign in but at the time of booking you will be redirected to sign-in page
+    - On the header, the User can see the count of items and the total amount of items in the cart
+    - With the click of a service card, a modal will open for service details 
+    - A signed-in user can see her appointments on the My Appointment page
+    - A service can be added once for a per appointment
+    - If a service is already in the cart the Reserve button will be disabled with the text "Added"
+    - On the click of the shopping bag icon on the header will take you to the cart page
+    - Using Jest and React testing library for testing
 
 
 ### Live link

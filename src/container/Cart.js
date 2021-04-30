@@ -41,6 +41,7 @@ class Cart extends PureComponent {
     const services = selectedServices && selectedServices;
     if (authenticated === null) {
       history.push('/signin');
+      return;
     }
     createAppointment(
       {
