@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Tag = (props) => {
+export const Tag = (props) => {
   const { className, children, ...rest } = props;
   return (
     <p className={className} {...rest}>
