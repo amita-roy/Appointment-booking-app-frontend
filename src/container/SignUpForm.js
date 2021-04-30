@@ -48,13 +48,20 @@ class SignUpForm extends Component {
     const inputClasses = 'block bg-transparent border-b w-full px-5 py-2 focus:outline-none';
     return (
       <div>
-        {errors && errors.length > 0
-          ? errors.map((error, index) => (
-            <p key={Math.random() + Math.random()}>
-              {`${index + 1}. ${error}`}
-            </p>
-          ))
-          : ''}
+        {errors && errors.length > 0 ? (
+          <div className="mb-8">
+            {errors.map((error) => (
+              <p
+                key={error}
+                className="text-errorColor-800"
+              >
+                {error}
+              </p>
+            ))}
+          </div>
+        ) : (
+          ''
+        )}
 
         <form className="w-full flex flex-col" onSubmit={this.handleSubmit}>
           <div>
