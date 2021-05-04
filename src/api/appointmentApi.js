@@ -28,7 +28,6 @@ export const fetchAllAppointments = async () => {
     const response = await client.get('/api/v1/appointments', {
       headers,
     });
-    console.log(response.data);
     return { success: response.data };
   } catch (error) {
     return { err: error };
