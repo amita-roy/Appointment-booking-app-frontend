@@ -66,7 +66,10 @@ export const fetchAppointments = () => async (dispatch) => {
   }
 };
 
-export const selectedService = (service) => ({
-  type: ACTIONS.SELECTED_SERVICE,
-  payload: service,
-});
+export const selectedService = (service, redirect) => {
+  redirect();
+  return {
+    type: ACTIONS.SELECTED_SERVICE,
+    payload: service,
+  };
+};
