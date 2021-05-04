@@ -31,15 +31,13 @@ class Cart extends PureComponent {
   handleSubmit = (event) => {
     event.preventDefault();
     const {
-      totalItemsPrice,
       history,
-      authenticated,
+      token,
       createAppointment,
-      selectedServices,
+      serviceSelected,
     } = this.props;
     const { date, time } = this.state;
-    const services = selectedServices && selectedServices;
-    if (authenticated === null) {
+    if (token === '') {
       history.push('/signin');
       return;
     }
@@ -47,8 +45,7 @@ class Cart extends PureComponent {
       {
         date,
         time,
-        services,
-        total_amount: totalItemsPrice,
+        serviceSelected,
       },
       () => {
         history.push('/appointments');
@@ -58,10 +55,10 @@ class Cart extends PureComponent {
 
   render() {
     const { date, time } = this.state;
-    const { selectedServices } = this.props;
+    const { serviceSelected } = this.props;
     return (
       <div className="py-10 px-8 ">
-        {selectedServices && selectedServices.length > 0 ? (
+        {serviceSelected ? (
           <div
             className="flex justify-between m-auto"
             style={{ maxWidth: '1024px' }}
@@ -73,14 +70,11 @@ class Cart extends PureComponent {
                 <p className="w-24 ml-8 font-bold text-xl">Duration</p>
                 <p className="w-24 ml-8 font-bold text-xl">Price</p>
               </div>
-              {selectedServices
-                && selectedServices.map((service) => (
-                  <div key={service.attributes.name} className="flex mb-3">
-                    <p className="w-36">{service.attributes.name}</p>
-                    <p className="w-24 ml-8">{`${service.attributes.duration} mins`}</p>
-                    <p className="w-24 ml-8">{`kr ${service.attributes.price}`}</p>
-                  </div>
-                ))}
+              <div key={serviceSelected.attributes.name} className="flex mb-3">
+                <p className="w-36">{serviceSelected.attributes.name}</p>
+                <p className="w-24 ml-8">{`${serviceSelected.attributes.duration} mins`}</p>
+                <p className="w-24 ml-8">{`kr ${serviceSelected.attributes.price}`}</p>
+              </div>
             </div>
             <div className="w-96 ml-8 px-4 py-8 bg-white shadow-lg">
               <div className="w-1/2 m-auto">
@@ -138,29 +132,24 @@ class Cart extends PureComponent {
 }
 
 Cart.defaultProps = {
-  selectedServices: null,
-  authenticated: null,
+  serviceSelected: {},
+  token: '',
 };
 
 Cart.propTypes = {
-  selectedServices: PropTypes.instanceOf(Array),
-  authenticated: PropTypes.string,
+  serviceSelected: PropTypes.instanceOf(Object),
+  token: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
   createAppointment: PropTypes.func.isRequired,
-  totalItemsPrice: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => {
-  const { selectedServices } = state;
-  const totalItemsPrice = selectedServices.length > 0
-    ? selectedServices.reduce((acc, curr) => acc + curr.attributes.price, 0)
-    : 0;
+  const serviceSelected = state.services.selected;
   return {
-    selectedServices,
-    authenticated: state.auth.authenticated,
-    totalItemsPrice,
+    serviceSelected,
+    token: state.auth.token,
   };
 };
 
