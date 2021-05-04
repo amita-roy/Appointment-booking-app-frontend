@@ -14,14 +14,10 @@ const initialState = {
     token: localStorage.getItem('token'),
     user: JSON.parse(localStorage.getItem('user')),
   },
-  allServices: {
-    services: [],
-  },
-  selectedService: null,
-  allAppointments: {
-    appointments: [],
-    included: [],
-  },
+  allServices: [],
+  selectedService: {},
+  allAppointments: [],
+  errors: [],
 };
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
