@@ -31,7 +31,7 @@ const requireAuth = (ChildComponent) => {
     }).isRequired,
   };
 
-  const mapStateToProps = (state) => ({ auth: state.auth.authenticated });
+  const mapStateToProps = (state) => ({ auth: state.auth.token });
   return connect(mapStateToProps)(ComposedComponent);
 };
 
