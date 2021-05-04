@@ -1,5 +1,5 @@
 import React from 'react';
-import RequireAuth from 'components/requiredAuth';
+import RequireAuth from 'container/requiredAuth';
 import Appointments from 'container/Appointments';
 
 const AppointmentsPage = () => (
