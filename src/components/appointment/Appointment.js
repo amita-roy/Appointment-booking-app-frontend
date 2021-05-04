@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 const Appointment = (props) => {
   const { appointment } = props;
-  const { attributes } = appointment;
+  const { attributes } = appointment && appointment;
 
   return (
     <div className="mt-10 bg-white py-8 px-16 shadow-2xl">
       <div className="flex justify-between">
         <div>
-          <div key={attributes.service.name} className="flex mt-4">
+          <div key={attributes.service.id} className="flex mt-4">
             <p className="w-52 lg:w-80">{attributes.service.name}</p>
             <p className="ml-4">{`${attributes.service.duration} mins`}</p>
           </div>
