@@ -1,23 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Pluralize from 'pluralize';
+// import Pluralize from 'pluralize';
 
 const Appointment = (props) => {
-  const { appointment, includedServices } = props;
+  const { appointment } = props;
   const { attributes } = appointment;
-  const { data } = appointment.relationships.services;
 
-  const getServices = (ids, services) => ids.map((id) => services.find((s) => id.id === s.id));
   return (
     <div className="mt-10 bg-white py-8 px-16 shadow-2xl">
       <div className="flex justify-between">
         <div>
-          {getServices(data, includedServices).map((service) => (
-            <div key={service.attributes.name} className="flex mt-4">
-              <p className="w-52 lg:w-80">{service.attributes.name}</p>
-              <p className="ml-4">{`${service.attributes.duration} mins`}</p>
-            </div>
-          ))}
+          <div key={attributes.service.name} className="flex mt-4">
+            <p className="w-52 lg:w-80">{attributes.service.name}</p>
+            <p className="ml-4">{`${attributes.service.duration} mins`}</p>
+          </div>
         </div>
         <div>
           <p className="text-right">{attributes.time}</p>
@@ -25,8 +21,7 @@ const Appointment = (props) => {
         </div>
       </div>
       <div className="mt-8 flex justify-between items-center">
-        <p className="text-xl">{`Total ${Pluralize('Service', data.length)} ${data.length}`}</p>
-        <p className="text-xl text-right">{`Total Amount Kr ${attributes['total-amount']}`}</p>
+        <p className="text-xl text-right">{`Total Amount Kr ${attributes.service.price}`}</p>
       </div>
       <small className="text-black text-opacity-60">Pay at location.</small>
     </div>
@@ -35,12 +30,10 @@ const Appointment = (props) => {
 
 Appointment.defaultProps = {
   appointment: {},
-  includedServices: [],
 };
 
 Appointment.propTypes = {
   appointment: PropTypes.instanceOf(Object),
-  includedServices: PropTypes.instanceOf(Array),
 };
 
 export default Appointment;
