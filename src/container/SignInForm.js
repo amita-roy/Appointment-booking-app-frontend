@@ -18,11 +18,6 @@ class SignInForm extends Component {
     };
   }
 
-  componentWillUnmount() {
-    const { resetStore } = this.props;
-    resetStore();
-  }
-
   handleChange = (event) => {
     const { value } = event.target;
 
@@ -108,10 +103,9 @@ SignInForm.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-  resetStore: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ errors: state.auth.errors });
+const mapStateToProps = (state) => ({ errors: state.errors });
 
 export default compose(
   withRouter,
