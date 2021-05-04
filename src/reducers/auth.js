@@ -1,7 +1,7 @@
 import ACTIONS from '../actions/actionTypes';
 
 const INITIAL_STATE = {
-  authenticated: '',
+  token: '',
   user: {},
   errors: null,
 };
@@ -9,10 +9,10 @@ const INITIAL_STATE = {
 const auth = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ACTIONS.AUTH_USER:
-      return { ...state, authenticated: action.payload, user: action.user };
-    case ACTIONS.AUTH_ERR:
+      return { ...state, token: action.payload, user: action.user };
+    case ACTIONS.ERR:
       return { ...state, errors: action.payload };
-    case ACTIONS.RESET_STORE:
+    case ACTIONS.RESET:
       return { ...state, errors: null };
 
     default:
