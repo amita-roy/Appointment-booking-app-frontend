@@ -72,6 +72,6 @@ Services.propTypes = {
   fetchAllServices: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ services: state.allServices });
+const mapStateToProps = (state) => ({ services: state.services.items });
 
 export default connect(mapStateToProps, Actions)(Services);
