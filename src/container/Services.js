@@ -63,11 +63,15 @@ class Services extends PureComponent {
   }
 }
 
+Services.defaultProps = {
+  services: [],
+};
+
 Services.propTypes = {
-  services: PropTypes.instanceOf(Array).isRequired,
+  services: PropTypes.instanceOf(Array),
   fetchAllServices: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ services: state.allServices.services });
+const mapStateToProps = (state) => ({ services: state.allServices });
 
 export default connect(mapStateToProps, Actions)(Services);
