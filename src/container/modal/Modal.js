@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 import ReactModal from 'react-modal';
 import PropTypes from 'prop-types';
 
@@ -17,15 +19,17 @@ export class Modal extends Component {
   };
 
   handleClick = () => {
-    const { serviceSelected, service, onClose } = this.props;
-    serviceSelected(service);
-    onClose();
+    const {
+      service, selectedService, onClose, history,
+    } = this.props;
+    selectedService(service, () => {
+      onClose();
+      history.push('/cart');
+    });
   }
 
   render() {
-    const {
-      isOpen, service, isAdded,
-    } = this.props;
+    const { isOpen, service } = this.props;
     const overlay = 'fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80';
 
     if (!service) {
@@ -71,23 +75,14 @@ export class Modal extends Component {
             <p className="mt-6">{service.attributes['long-desc']}</p>
           </div>
           <div className="flex justify-end">
-            {isAdded ? (
-              <Button
-                disabled
-                type="button"
-                className="mt-16 px-14 pt-3 pb-2 bg-black text-primary bg-opacity-70 uppercase"
-              >
-                Added
-              </Button>
-            ) : (
-              <Button
-                onClick={this.handleClick}
-                type="submit"
-                className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end hover:shadow-lg focus:outline-none active:bg-opacity-70 uppercase"
-              >
-                Reserve
-              </Button>
-            )}
+
+            <Button
+              onClick={this.handleClick}
+              type="submit"
+              className="mt-16 px-14 pt-3 pb-2 bg-black text-primary self-end hover:shadow-lg focus:outline-none active:bg-opacity-70 uppercase"
+            >
+              Reserve
+            </Button>
           </div>
         </div>
       </ReactModal>
@@ -97,13 +92,18 @@ export class Modal extends Component {
 
 Modal.defaultProps = {
   service: null,
+  serviceSelected: {},
 };
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  serviceSelected: PropTypes.func.isRequired,
+  selectedService: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
   service: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     attributes: PropTypes.shape({
       name: PropTypes.string,
       description: PropTypes.string,
@@ -114,16 +114,20 @@ Modal.propTypes = {
       'long-desc': PropTypes.string,
     }),
   }),
-  isAdded: PropTypes.bool.isRequired,
+  serviceSelected: PropTypes.shape({
+    id: PropTypes.string,
+    attributes: PropTypes.shape({
+      name: PropTypes.string,
+      description: PropTypes.string,
+      duration: PropTypes.number,
+      price: PropTypes.number,
+      offer: PropTypes.string,
+      image: PropTypes.string,
+      'long-desc': PropTypes.string,
+    }),
+  }),
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const { selectedServices } = state;
-  const { service } = ownProps;
-  const isAdded = selectedServices.filter(
-    (item) => item.attributes.name === (service && service.attributes.name),
-  );
-  return { isAdded: isAdded.length > 0, selectedServices };
-};
+const mapStateToProps = (state) => ({ serviceSelected: state.services.selected });
 
-export default connect(mapStateToProps, Actions)(Modal);
+export default compose(withRouter, connect(mapStateToProps, Actions))(Modal);
