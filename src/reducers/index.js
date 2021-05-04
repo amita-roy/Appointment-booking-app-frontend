@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
-import allServices from './servicesReducer';
 import appointments from './appointments';
+import errors from './errors';
+import services from './services';
 
 export default combineReducers({
   auth,
-  allServices,
+  services,
   allAppointments: appointments,
+  errors,
 });
