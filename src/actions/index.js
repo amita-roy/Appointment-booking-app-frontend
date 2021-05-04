@@ -7,7 +7,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
   const { success, user, err } = await registerUser(formProps);
 
   if (err) {
-    dispatch({ type: ACTIONS.AUTH_ERR, payload: err });
+    dispatch({ type: ACTIONS.ERR, payload: err });
   } else {
     dispatch({ type: ACTIONS.AUTH_USER, payload: success, user });
     localStorage.setItem('token', success);
@@ -20,7 +20,7 @@ export const signin = (formProps, callback) => async (dispatch) => {
   const { success, user, err } = await loginUser(formProps);
 
   if (err) {
-    dispatch({ type: ACTIONS.AUTH_ERR, payload: err });
+    dispatch({ type: ACTIONS.ERR, payload: err });
   } else {
     dispatch({ type: ACTIONS.AUTH_USER, payload: success, user });
     localStorage.setItem('token', success);
@@ -39,15 +39,13 @@ export const signout = () => {
   };
 };
 
-export const serviceSelected = (service) => ({ type: ACTIONS.SERVICE_SELECTED, payload: service });
-
-export const resetStore = () => ({ type: ACTIONS.RESET_STORE });
+export const resetStore = () => ({ type: ACTIONS.RESET });
 
 export const fetchAllServices = () => async (dispatch) => {
   const { success, err } = await fetchServices();
 
   if (err) {
-    dispatch({ type: ACTIONS.SERVICE_ERR, payload: err });
+    dispatch({ type: ACTIONS.ERR, payload: err });
   } else {
     dispatch({ type: ACTIONS.FETCH_SERVICES, payload: success.data });
   }
@@ -56,9 +54,9 @@ export const fetchAllServices = () => async (dispatch) => {
 export const createAppointment = (appointment, callback) => async (dispatch) => {
   const { err } = await newAppointment(appointment);
   if (err) {
-    dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
+    dispatch({ type: ACTIONS.ERR, payload: err });
   } else {
-    dispatch({ type: ACTIONS.RESET_SELECTED_SERVICES });
+    dispatch({ type: ACTIONS.RESET });
     callback();
   }
 };
@@ -66,7 +64,7 @@ export const fetchAppointments = () => async (dispatch) => {
   const { success, err } = await fetchAllAppointments();
 
   if (err) {
-    dispatch({ type: ACTIONS.APPOINTMENTS_ERR, payload: err });
+    dispatch({ type: ACTIONS.ERR, payload: err });
   } else {
     dispatch({ type: ACTIONS.FETCH_APPOINTMENTS, payload: success });
   }
