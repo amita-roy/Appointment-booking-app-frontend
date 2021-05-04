@@ -11,13 +11,13 @@ import './index.css';
 
 const initialState = {
   auth: {
-    authenticated: localStorage.getItem('token'),
+    token: localStorage.getItem('token'),
     user: JSON.parse(localStorage.getItem('user')),
   },
   allServices: {
     services: [],
   },
-  selectedServices: [],
+  selectedService: null,
   allAppointments: {
     appointments: [],
     included: [],
