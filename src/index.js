@@ -14,8 +14,12 @@ const initialState = {
     token: localStorage.getItem('token'),
     user: JSON.parse(localStorage.getItem('user')),
   },
-  allServices: [],
-  selectedService: {},
+
+  services: {
+    items: [],
+    selected: null,
+  },
+
   allAppointments: [],
   errors: [],
 };
