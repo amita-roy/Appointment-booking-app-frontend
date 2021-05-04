@@ -11,8 +11,8 @@ class Header extends PureComponent {
   handleSubmit = (event) => {
     event.preventDefault();
     const { signout, history } = this.props;
-    history.push('/signin');
     signout();
+    history.push('/signin');
   }
 
   render() {
@@ -87,7 +87,7 @@ class Header extends PureComponent {
 }
 
 Header.defaultProps = {
-  user: {},
+  user: null,
 };
 
 Header.propTypes = {
