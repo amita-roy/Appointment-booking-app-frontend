@@ -19,6 +19,11 @@ class SignUpForm extends Component {
     };
   }
 
+  componentWillUnmount() {
+    const { resetError } = this.props;
+    resetError();
+  }
+
   handleChange = (event) => {
     const { value } = event.target;
 
@@ -46,10 +51,7 @@ class SignUpForm extends Component {
         {errors && errors.length > 0 ? (
           <div className="mb-8">
             {errors.map((error) => (
-              <p
-                key={error}
-                className="text-errorColor-800"
-              >
+              <p key={error} className="text-errorColor-800">
                 {error}
               </p>
             ))}
@@ -117,6 +119,7 @@ SignUpForm.defaultProps = {
 SignUpForm.propTypes = {
   signup: PropTypes.func.isRequired,
   errors: PropTypes.instanceOf(Array),
+  resetError: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,

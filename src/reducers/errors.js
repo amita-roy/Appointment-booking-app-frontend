@@ -7,6 +7,7 @@ const errors = (state = INITIAL_STATE, action) => {
     case ACTIONS.SET_ERROR:
       return action.payload;
     case ACTIONS.AUTH_USER:
+    case ACTIONS.RESET_ERROR:
     case ACTIONS.CREATE_APPOINTMENT:
       return INITIAL_STATE;
 

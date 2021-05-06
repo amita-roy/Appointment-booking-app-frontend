@@ -73,3 +73,5 @@ export const selectedService = (service, redirect) => {
     payload: service,
   };
 };
+
+export const resetError = () => ({ type: ACTIONS.RESET_ERROR });
