@@ -17,7 +17,7 @@
 
 
 ### Live link
-[Encapture](https://encapture-fz4j1duc7-royamita.vercel.app/)
+[Encapture](https://encapture.vercel.app/)
 
 ### Link for the backend repository
 [Encapture Backend](https://github.com/Amita-Roy/Encapture-API)
