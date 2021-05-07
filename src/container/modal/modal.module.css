@@ -1,0 +1,9 @@
+.modal {
+  max-width: 700px;
+  max-height: 700px;
+  top: 10vh;
+  left: 60px;
+  right: 60px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
